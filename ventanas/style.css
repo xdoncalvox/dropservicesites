@@ -1,0 +1,726 @@
+
+/* --- RESET & VARIABLES --- */
+:root {
+    --bg-color: #ffffff;
+    --text-main: #2a2a2a;
+    --text-light: #666666;
+    --border-color: #e5e5e5;
+    --accent-color: #f4f4f4;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --spacing-section: 120px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: #111;
+}
+
+h1 { font-size: 3.5rem; letter-spacing: -0.02em; line-height: 1.1; }
+h2 { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+p { color: var(--text-light); font-size: 0.95rem; }
+
+/* --- LAYOUT UTILITIES --- */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 1%;
+}
+
+section { padding: var(--spacing-section) 0; }
+
+/* --- HEADER --- */
+header {
+    padding-right: 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex; 
+    gap: 40px; 
+    transition: transform 0.3s ease-in-out;
+}
+/*
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        gap: 40px;
+        position: absolute;
+        right: 30%;
+    }
+}
+*/
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: opacity 0.3s;
+}
+.nav-links a:hover { opacity: 0.6; }
+
+.menu-toggle {
+    display: none; 
+}
+
+@media (max-width: 768px) {
+    header {
+        background-color: whitesmoke;
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 0; 
+        width: 100%;
+        background-color: var(--bg-color); /* Fondo sólido al abrir */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        padding: 100px 40px 20px 40px; 
+        align-items: flex-start;
+        z-index: 999;
+    }
+
+    .menu-toggle {
+        display: block; 
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10000;
+        background: none;
+        border: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links a {
+        padding: 15px 0;
+        width: 100%;
+        border-bottom: 1px solid var(--accent-color);
+        color: #555;
+    }
+}
+
+
+
+/* --- HERO SECTION --- */
+.hero {
+    margin-top: -120px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-content {
+    padding-top: 120px;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* --- SERVICES --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    text-align: center;
+}
+
+.service-item span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 20px;
+    font-family: var(--font-serif);
+    color: #ccc;
+}
+
+/* --- PRODUCTS --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: #fff;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover { transform: translateY(-5px); }
+
+.product-image {
+    height: 400px;
+    background-color: var(--accent-color);
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: filter 0.4s;
+}
+
+.product-card:hover img { filter: grayscale(0%); }
+
+.product-info h3 { font-size: 1.2rem; }
+.product-info p { font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: #999; }
+
+/* --- CALCULATOR SECTION --- */
+
+.calculator-section {
+    background-color: #fafafa;
+}
+
+.calculator-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 60px;
+    border: 1px solid var(--border-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* full-width removido para balancear la grilla 2x2 */
+
+label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    color: #888;
+}
+
+input, select {
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: #333;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-bottom-color: #333;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    cursor: pointer;
+}
+
+.price-display {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.price-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+    color: #999;
+}
+
+.price-value {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: #222;
+}
+/* Subtotal por ítem */
+.item-subtotal {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    text-align: right;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+/* Estilo para cada tarjeta de ventana */
+.item-card {
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    margin-bottom: 30px;
+    background: var(--accent-color); /* Gris muy claro */
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.item-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+.item-subtotal .subtotal-value {
+    font-weight: 400;
+    color: var(--text-main);
+}
+
+/* Botón de Agregar Ventana */
+.add-item-btn {
+    width: auto !important; /* Anula el 100% del btn-calculate */
+    padding: 12px 25px;
+    margin-top: 0;
+    border: 1px solid var(--border-color);
+    color: #666;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+}
+.add-item-btn:hover {
+    background: var(--bg-color);
+    color: var(--text-main);
+}
+.add-item-btn i {
+    margin-right: 10px;
+}
+/* Botón de eliminar (X) */
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.remove-item-btn:hover {
+    color: #333;
+}
+
+/* --- ESTILOS PARA EL SELECTOR VISUAL DE MATERIAL --- */
+
+.material-selector-group {
+    /* Resetea la alineación si fue alterada */
+    display: block; 
+}
+
+.material-options {
+    display: flex;
+    gap: 15px; /* Espacio entre las imágenes */
+    margin-top: 5px;
+}
+
+.material-option {
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-grow: 1; /* Distribuye uniformemente el espacio */
+    max-width: 120px; /* Limita el ancho de cada opción */
+}
+
+/* Estilo para la opción seleccionada */
+.material-option.selected {
+    border-color: #333; /* Borde oscuro para indicar selección */
+    background-color: var(--bg-color);
+    box-shadow: 0 0 0 2px #333;
+}
+
+.material-image-wrapper {
+    width: 100%;
+    height: 80px; /* Altura fija para las imágenes */
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.material-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    display: block;
+    transition: transform 0.3s;
+}
+
+.material-option:hover img {
+    transform: scale(1.05); /* Pequeño efecto hover */
+}
+
+.material-option p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* --- ESTILOS PARA EL SELECTOR VISUAL DE PRODUCTO (TIPO DE SISTEMA) --- */
+
+.product-selector-group {
+    display: block; 
+}
+
+.product-options {
+    display: flex;
+    gap: 15px; 
+    margin-top: 5px;
+}
+
+.product-option {
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-grow: 1;
+    max-width: 120px; 
+}
+
+/* Estilo para la opción seleccionada */
+.product-option.selected {
+    border-color: #333; 
+    background-color: var(--bg-color);
+    box-shadow: 0 0 0 2px #333;
+}
+
+.product-image-wrapper {
+    width: 100%;
+    height: 80px; 
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.product-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.3s;
+}
+
+.product-option:hover img {
+    transform: scale(1.05); 
+}
+
+.product-option p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+/* Ocultar el input horizontal original (que ahora es el campo oculto) */
+.item-material {
+    display: none !important; 
+}
+
+/*
+.btn-calculate {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-calculate:hover {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+} */
+
+/* --- FOOTER --- */
+footer {
+    padding: 80px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .form-grid { grid-template-columns: 1fr; gap: 20px; }
+    .hero { justify-content: center; text-align: center; }
+}
+
+/* --- LENIS SMOOTH SCROLL (Requerido para la fluidez) --- */
+html.lenis {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto; /* Lenis controla el scroll, no CSS */
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* --- ESTILOS DEL MODAL (POP-UP) --- */
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 2000; /* Alto para que esté sobre el header fijo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrar verticalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-content p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Reutilizar estilos de formulario ya definidos */
+#contactForm .form-group {
+    margin-bottom: 15px;
+}
+#contactForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#contactForm input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.submit-quote-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* --- ESTILOS GENERALES DE BOTÓN (ASUMIENDO .btn-calculate ES EL ESTILO BASE) --- */
+.btn-calculate {
+    /* Define un estilo base limpio y minimalista */
+    display: block;
+    width: 100%;
+    padding: 15px 30px;
+    background: none;
+    border: 1px solid var(--text-main); /* Borde sutil */
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-calculate:hover {
+    background-color: var(--text-main); /* Fondo negro al pasar el ratón */
+    color: var(--bg-color); /* Texto blanco al pasar el ratón */
+}
+
+/* --- ESTILO ESPECÍFICO DEL BOTÓN DE SOLICITUD FORMAL --- */
+.request-quote-btn {
+    /* Hacemos que este botón se destaque un poco más, pero manteniéndolo monocromático */
+    margin-top: 40px; /* Separación del precio total */
+    font-weight: 500;
+}
+
+/* Si quieres que se vea como un botón 'primario' (negro sólido) para más énfasis: */
+.request-quote-btn:not(:hover) { 
+    background-color: var(--text-main);
+    color: var(--bg-color); 
+    border-color: var(--text-main);
+}
+.request-quote-btn:hover {
+    /* Al pasar el ratón, invertimos al estilo bordeado */
+    background-color: transparent;
+    color: var(--text-main);
+    border-color: var(--text-main);
+}
+
+/* --- MODIFICACIÓN DEL MODAL (Asegurar que el botón se vea bien) --- */
+.submit-quote-btn {
+    width: 100%;
+    margin-top: 20px;
+    /* Aplicará el estilo de botón primario (negro) automáticamente */
+}
+
+/* --- ESTILOS DEL ÍCONO DE CHAT FLOTANTE --- */
+
+.chat-icon-container {
+    /* Posición fija en la parte inferior izquierda */
+    position: fixed;
+    bottom: 30px; 
+    left: 30px; 
+    z-index: 990; /* Alto, pero debajo del modal (z-index: 2000) */
+}
+
+.chat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Estilo minimalista y de alta gama */
+    width: 50px;
+    height: 50px;
+    background-color: var(--text-main); /* Fondo negro sólido */
+    color: var(--bg-color); /* Ícono blanco */
+    border-radius: 50%; /* Circular */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.chat-icon:hover {
+    background-color: #444; /* Ligero cambio al pasar el ratón */
+    transform: scale(1.05); /* Pequeño efecto de elevación */
+}
+
+/* Ajuste para pantallas más pequeñas (opcional) */
+@media (max-width: 768px) {
+    .chat-icon-container {
+        bottom: 20px;
+        left: 20px;
+    }
+    .chat-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}

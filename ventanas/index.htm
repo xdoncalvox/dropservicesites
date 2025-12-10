@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER | Architectural Glazing</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="#" class="logo">Aether</a>
+
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#quote">Cotizar</a>
+                    <a href="#services">Servicios</a>
+                    <a href="#products">Colección</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Puertas y Ventanas</span>
+                <h1>La transparencia <br>como forma de arte.</h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Nuestra Experiencia</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <span>I</span>
+                    <h3>Diseño a Medida</h3>
+                    <p>Ingeniería de precisión para espacios arquitectónicos exigentes.</p>
+                </div>
+                <div class="service-item">
+                    <span>II</span>
+                    <h3>Fabricación</h3>
+                    <p>Materiales nobles procesados con tecnología de vanguardia.</p>
+                </div>
+                <div class="service-item">
+                    <span>III</span>
+                    <h3>Instalación</h3>
+                    <p>Ejecución técnica impecable con un equipo certificado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Colección Signature</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://qcero.com.ar/wp-content/uploads/2021/06/PRTADA-AHORRO-E.jpg?q=80&w=800&auto=format&fit=crop" alt="Ventana Minimalista">
+                    </div>
+                    <div class="product-info">
+                        <p>Serie Horizon</p>
+                        <h3>Ventanal Fijo</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.carpinteriakapitel.es/34111-large_default/puerta-industrial-hasta-el-techo-corredera-lisa-con-cristal.jpg?q=80&w=800&auto=format&fit=crop" alt="Puerta Corredera">
+                    </div>
+                    <div class="product-info">
+                        <p>Serie Flow</p>
+                        <h3>Corredera Elevable</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://aluminiosalutech.com/wp-content/uploads/alutech-ventana-pivotante-aireacion-continua.webp?q=80&w=800&auto=format&fit=crop" alt="Entrada Principal">
+                    </div>
+                    <div class="product-info">
+                        <p>Serie Grand</p>
+                        <h3>Pivotante</h3>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://www.aluminum-doors.com/Content/uploads/2023670662/2023032915584983ce7ad0f9b04a07a11fd609a214c348.jpg?q=80&w=800&auto=format&fit=crop" alt="Entrada Principal">
+                    </div>
+                    <div class="product-info">
+                        <p>Serie Grand</p>
+                        <h3>Celosia</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote" class="calculator-section">
+        <div class="container">
+            <h2>Estimación de Proyecto</h2>
+            <div class="calculator-wrapper">
+                <form id="quoteForm">
+                    
+                    <div id="itemContainer">
+                        
+                        <div class="item-card" data-item-id="1" id="initialItem">
+                            <div class="item-header">
+                                <h3>Ventana 1</h3>
+                                <button type="button" class="remove-item-btn" data-item-id="1">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Ancho (cm)</label>
+                                    <input type="number" class="item-width" placeholder="0" min="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Alto (cm)</label>
+                                    <input type="number" class="item-height" placeholder="0" min="0" required>
+                                </div>
+                                <div class="form-group material-selector-group"> 
+                                    <label>Material</label>
+                                    <div class="material-options">
+                                        
+                                        <div class="material-option" data-value="1.8">
+                                            <div class="material-image-wrapper">
+                                                <img src="https://www.hugh-aluminum.com/wp-content/uploads/2024/03/aluminum-window-frame-scaled.webp?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aluminio Anodizado">
+                                            </div>
+                                            <p>Aluminio</p>
+                                        </div>
+
+                                        <div class="material-option selected" data-value="1.0">
+                                            <div class="material-image-wrapper">
+                                                <img src="https://giantsmade.com/cdn/shop/products/H2b3c7b25ba514f9bb0321ebac947173ap.jpg_960x960_d27db4a9-5992-4438-ad9c-212c6a9cfa4a.jpg?v=1672277937?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="PVC Premium">
+                                            </div>
+                                            <p>PVC</p>
+                                        </div>
+                                        
+                                    </div>
+                                    <input type="hidden" class="item-material" value="1.0">
+                                </div>
+                                <!-- Seccion de Seleccion de Tipo de ventana -->
+                                <div class="form-group product-selector-group">
+                                    <label>Tipo de Sistema</label>
+                                    <div class="product-options">
+
+                                        <div class="product-option selected" data-value="1.0">
+                                            <div class="product-image-wrapper">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsxz7ezJ6KnAsx77LKsX1aODbz1965Oa2fhA&s?q=80&w=300&auto=format&fit=crop" alt="Ventana Fija o Abatible">
+                                            </div>
+                                            <p>Fija / Abatible</p>
+                                        </div>
+
+                                        <div class="product-option" data-value="1.8">
+                                            <div class="product-image-wrapper">
+                                                <img src="https://hnosorozco.es/wp-content/uploads/2017/07/cerramiento-corredera-aluminio.jpg?q=80&w=300&auto=format&fit=crop" alt="Puerta Corredera">
+                                            </div>
+                                            <p>Corredera</p>
+                                        </div>
+
+                                        <div class="product-option" data-value="2.5">
+                                            <div class="product-image-wrapper">
+                                                <img src="https://s.alicdn.com/@sc04/kf/HTB1Mc4eXmWD3KVjSZSg763CxVXaF/Horizontal-Pivot-Window-Aluminium-Window-Frame-and-Glass-Aluminium-Frosted-Glass-Window.png_300x300.jpg?q=80&w=300&auto=format&fit=crop" alt="Sistema Pivotante Grande">
+                                            </div>
+                                            <p>Pivotante</p>
+                                        </div>
+                                        
+                                    </div>
+                                    <input type="hidden" class="item-productType" value="1.0">
+                                </div>
+                                <!-- Fin de Seccion de Seleccion de Tipo de ventana -->
+                            </div>
+                            <div class="item-subtotal">Subtotal: <span class="subtotal-value">RD$ 0</span></div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-calculate add-item-btn" id="addItemBtn">
+                        <i class="fa-solid fa-plus"></i> Agregar otra ventana
+                    </button>
+                    
+                    <div class="price-display">
+                        <span class="price-label">Precio Total Estimado</span>
+                        <div class="price-value" id="finalPrice">RD$ 0</div>
+                    </div>
+
+                    <button type="button" class="btn-calculate request-quote-btn" id="requestQuoteBtn">
+                        Solicitar Cotización Formal
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Hecho con <i class="fa fa-heart" style="color:red"></i> en Republica Dominicana. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="chat-icon-container">
+        <a href="#" class="chat-icon" title="Iniciar Chat">
+            <i class="fa-solid fa-comments"></i>
+        </a>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> 
+<script src="script.js" defer></script>
+
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Confirmar Solicitud de Cotización</h3>
+        <p>Por favor, ingrese un medio de contacto para que un asesor le envíe la cotización formal detallada.</p>
+        
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="contactEmail">Correo Electrónico (o Teléfono)</label>
+                <input type="text" id="contactEmail" required placeholder="ej. correo@ejemplo.com o 809-123-4567">
+            </div>
+            <button type="submit" class="btn-calculate submit-quote-btn">
+                Enviar Solicitud
+            </button>
+        </form>
+
+        <div id="successMessage" style="display: none; text-align: center; margin-top: 20px;">
+            <i class="fa-solid fa-check-circle" style="color: #4CAF50; font-size: 2rem; margin-bottom: 10px;"></i>
+            <p style="font-weight: bold; color: #333;">¡Solicitud enviada con éxito!</p>
+            <p>Le contactaremos en breve con su cotización formal.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
