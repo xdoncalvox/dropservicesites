@@ -48,9 +48,11 @@
             const height = parseFloat(itemElement.querySelector('.item-height').value) || 0;
             const materialFactor = parseFloat(itemElement.querySelector('.item-material').value);
             const productFactor = parseFloat(itemElement.querySelector('.item-productType').value);
+            const glassFactor = parseFloat(itemElement.querySelector('.item-glass').value);
 
             if (width > 0 && height > 0) {
-                let rawPrice = ((width * height * materialFactor * productFactor) / 100) * TASA_BASE;
+                // Calcula el precio incluyendo: ancho * alto * material * tipo de sistema * tipo de cristal
+                let rawPrice = ((width * height * materialFactor * productFactor * glassFactor) / 100) * TASA_BASE;
                 
                 // Actualiza el subtotal de esta ventana
                 itemElement.querySelector('.subtotal-value').textContent = formatPrice(rawPrice);
@@ -127,12 +129,15 @@
 
             newItem.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
 
-            // 4. Seleccionar la primera opción por defecto (PVC y Fija/Abatible)
+            // 4. Seleccionar la primera opción por defecto (PVC, Fija/Abatible y Cristal Simple)
             newItem.querySelector('.material-option[data-value="1.8"]').classList.add('selected');
             newItem.querySelector('.item-material').value = '1.8';
             
             newItem.querySelector('.product-option[data-value="1.0"]').classList.add('selected');
             newItem.querySelector('.item-productType').value = '1.0';
+
+            newItem.querySelector('.glass-option[data-value="1.0"]').classList.add('selected');
+            newItem.querySelector('.item-glass').value = '1.0';
             
             // Insertar y actualizar botones
             itemContainer.appendChild(newItem);
@@ -317,6 +322,35 @@
                 // 3. Actualizar el valor del input oculto (¡CRÍTICO para el cálculo!)
                 if (hiddenProductInput.value !== newValue) {
                     hiddenProductInput.value = newValue;
+                    // Forzar el recálculo total si el valor cambió
+                    calculateTotal(); 
+                }
+            }
+        });
+
+        // --- LÓGICA DEL SELECTOR DE TIPO DE CRISTAL ---
+
+        // Listener delegado para los clics en todas las opciones de cristal
+        itemContainer.addEventListener('click', (e) => {
+            const glassOption = e.target.closest('.glass-option');
+            
+            if (glassOption) {
+                e.preventDefault();
+                const currentItemCard = glassOption.closest('.item-card');
+                const hiddenGlassInput = currentItemCard.querySelector('.item-glass');
+                const newValue = glassOption.getAttribute('data-value');
+                
+                // 1. Quitar la clase 'selected' de todos los hermanos del mismo grupo
+                currentItemCard.querySelectorAll('.glass-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+
+                // 2. Agregar la clase 'selected' a la opción clickeada
+                glassOption.classList.add('selected');
+
+                // 3. Actualizar el valor del input oculto (¡CRÍTICO para el cálculo!)
+                if (hiddenGlassInput.value !== newValue) {
+                    hiddenGlassInput.value = newValue;
                     // Forzar el recálculo total si el valor cambió
                     calculateTotal(); 
                 }

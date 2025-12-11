@@ -1,0 +1,21 @@
+# Claude documentation
+.claude
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node & Package managers
+node_modules/
+package-lock.json
+yarn.lock
+npm-debug.log
+
+# OS
+Thumbs.db
+.env
+.env.local
