@@ -152,7 +152,7 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+    background: url('img/fondo_portada.png?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
     position: relative;
 }
 
@@ -254,6 +254,13 @@ nav {
     flex-direction: column;
 }
 
+/* Los selectores visuales deben ocupar el ancho completo */
+.material-selector-group,
+.product-selector-group,
+.glass-selector-group {
+    grid-column: 1 / -1;
+}
+
 /* full-width removido para balancear la grilla 2x2 */
 
 label {
@@ -261,7 +268,7 @@ label {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 10px;
-    color: #888;
+    color: #333;
 }
 
 input, select {
@@ -305,7 +312,7 @@ select {
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 10px;
-    color: #999;
+    color: #555;
 }
 
 .price-value {
@@ -321,7 +328,7 @@ select {
     text-align: right;
     font-family: var(--font-sans);
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: #555;
 }
 /* Estilo para cada tarjeta de ventana */
 .item-card {
@@ -389,8 +396,9 @@ select {
 
 .material-options {
     display: flex;
-    gap: 15px; /* Espacio entre las imágenes */
+    gap: 15px;
     margin-top: 5px;
+    flex-wrap: wrap;
 }
 
 .material-option {
@@ -449,6 +457,7 @@ select {
     display: flex;
     gap: 15px; 
     margin-top: 5px;
+    flex-wrap: wrap;
 }
 
 .product-option {
@@ -495,6 +504,75 @@ select {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 0;
+}
+
+/* --- ESTILOS PARA EL SELECTOR VISUAL DE TIPO DE CRISTAL --- */
+
+.glass-selector-group {
+    display: block; 
+}
+
+.glass-options {
+    display: flex;
+    gap: 15px; 
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.glass-option {
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    flex-grow: 1;
+    max-width: 120px; 
+}
+
+.glass-image-wrapper {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+}
+
+.glass-option img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.glass-option:hover img {
+    transform: scale(1.05);
+}
+
+.glass-option p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    margin-top: 5px;
+}
+
+/* Estilo para la opción seleccionada */
+.glass-option.selected {
+    border-color: #333; 
+    background-color: var(--bg-color);
+    box-shadow: 0 0 0 2px #333;
+}
+
+/* Ocultar el input oculto de cristal */
+.item-glass {
+    display: none !important; 
 }
 
 /* Ocultar el input horizontal original (que ahora es el campo oculto) */
