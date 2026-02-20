@@ -152,7 +152,8 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: url('img/fondo_portada.png?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+    /* background: url('img/ventanal.png?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover; */
+    background: url('img/varias-ventanas.jpg?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
     position: relative;
 }
 
@@ -170,12 +171,20 @@ nav {
     max-width: 600px;
 }
 
+.hero-content h1 {
+    font-size: 2.0rem;
+    color: #ffffff;
+    background-color: rgba(18, 87, 156, 0.603);
+}
+
 .hero-subtitle {
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-size: 0.8rem;
+    font-size: 1.8rem;
     margin-bottom: 20px;
     display: block;
+    color: #ffffff;
+    background-color: rgba(18, 87, 156, 0.603);
 }
 
 /* --- SERVICES --- */
